@@ -46,8 +46,8 @@ function Villain(villainAttributes){
   Humanoid.call(this,villainAttributes);
 }
 Villain.prototype = Object.create(Humanoid.prototype);
-Villain.prototype.poke = function (){
-  return `${this.name} is annoyingly poking you.`
+Villain.prototype.failsteal = function (){
+  return `${this.name} tried and failed to steal from you.`
 }
 Villain.prototype.stoleKitty = function(){
   return `${this.name} stole the pocket kitten.`
@@ -61,7 +61,7 @@ Hero.prototype.feed = function(){
   return `${this.name} has fed you.`
 }
 Hero.prototype.returnKitty = function (){
-  return `${this.name} retrieved the stolen pocket kitten.`
+  return `${this.name} retrieved the stolen pocket kitten!`
 }
 Hero.prototype.kill= function(){
   return `The hero, ${this.name}, accidentally killed you.`
@@ -174,16 +174,16 @@ const hammer = new Hero({
   });
   console.log(billy.stoleKitty());
   console.log(hammer.kill());
-  // console.log(mage.createdAt); // Today's date
-  // console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-  // console.log(swordsman.healthPoints); // 15
-  // console.log(mage.name); // Bruce
-  // console.log(swordsman.team); // The Round Table
-  // console.log(mage.weapons); // Staff of Shamalama
-  // console.log(archer.language); // Elvish
-  // console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-  // console.log(mage.takeDamage()); // Bruce took damage.
-  // console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+   console.log(mage.createdAt); // Today's date
+   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+   console.log(swordsman.healthPoints); // 15
+   console.log(mage.name); // Bruce
+   console.log(swordsman.team); // The Round Table
+   console.log(mage.weapons); // Staff of Shamalama
+   console.log(archer.language); // Elvish
+   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+   console.log(mage.takeDamage()); // Bruce took damage.
+   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
   
 /*
   === GameObject ===
