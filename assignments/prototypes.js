@@ -41,6 +41,87 @@ Humanoid.prototype=Object.create(CharacterStats.prototype);
 Humanoid.prototype.greet = function(){
   return `${this.name} offers a greeting in ${this.language}`
 }
+//Villain
+function Villain(villainAttributes){
+  Humanoid.call(this,villainAttributes);
+}
+Villain.prototype = Object.create(Humanoid.prototype);
+Villain.prototype.poke = function (){
+  return `${this.name} is annoyingly poking you.`
+}
+Villain.prototype.stoleKitty = function(){
+  return `${this.name} stole the pocket kitten.`
+}
+//Hero
+function Hero (heroAttributes){
+  Humanoid.call(this,heroAttributes);
+}
+Hero.prototype = Object.create(Humanoid.prototype);
+Hero.prototype.feed = function(){
+  return `${this.name} has fed you.`
+}
+Hero.prototype.returnKitty = function (){
+  return `${this.name} retrieved the stolen pocket kitten.`
+}
+Hero.prototype.kill= function(){
+  return `The hero, ${this.name}, accidentally killed you.`
+}
+
+const pocketKitty = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 1,
+    width: 1,
+    height: 1,
+  },
+  healthPoints: 9,
+  name: 'Pocket Kitten',
+  team: 'Likes to Swat Guild',
+  weapons: [
+    'Teeth',
+    'Claws',
+  ],
+  language: 'Meow',
+});
+
+const billy = new Villain({
+  createdAt: new Date(),
+  dimensions: {
+    length: 1,
+    width: 2,
+    height: 2,
+  },
+  healthPoints: 12,
+  name: 'Dr. Horrible',
+  team: 'Evil League of Evil',
+  weapons: [
+    'Freeze Ray',
+    'Transmatter Ray',
+  ],
+  language: 'The Common Tongue',
+});
+
+const hammer = new Hero({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 2,
+    height: 2,
+  },
+  healthPoints: 8,
+  name: 'Captain Hammer',
+  team: 'Himself',
+  weapons: [
+    'Fists',
+    'Hammer',
+  ],
+  language: 'The Common Tongue',
+});
+
+  // Stretch task: 
+  // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
+  // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
+  // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
   const mage = new Humanoid({
     createdAt: new Date(),
@@ -91,17 +172,19 @@ Humanoid.prototype.greet = function(){
     ],
     language: 'Elvish',
   });
-
-  console.log(mage.createdAt); // Today's date
-  console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
-  console.log(swordsman.healthPoints); // 15
-  console.log(mage.name); // Bruce
-  console.log(swordsman.team); // The Round Table
-  console.log(mage.weapons); // Staff of Shamalama
-  console.log(archer.language); // Elvish
-  console.log(archer.greet()); // Lilith offers a greeting in Elvish.
-  console.log(mage.takeDamage()); // Bruce took damage.
-  console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+  console.log(billy.stoleKitty());
+  console.log(hammer.kill());
+  // console.log(mage.createdAt); // Today's date
+  // console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
+  // console.log(swordsman.healthPoints); // 15
+  // console.log(mage.name); // Bruce
+  // console.log(swordsman.team); // The Round Table
+  // console.log(mage.weapons); // Staff of Shamalama
+  // console.log(archer.language); // Elvish
+  // console.log(archer.greet()); // Lilith offers a greeting in Elvish.
+  // console.log(mage.takeDamage()); // Bruce took damage.
+  // console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+  
 /*
   === GameObject ===
 
@@ -139,8 +222,3 @@ Humanoid.prototype.greet = function(){
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
-
-  // Stretch task: 
-  // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
-  // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
-  // * Create two new objects, one a villain and one a hero and fight it out with methods!
